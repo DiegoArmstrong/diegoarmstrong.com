@@ -1,2 +1,12 @@
 # diegoarmstrong.com
-My most authentic self on the web. No flashiness as I am no web developer, just a guy that likes systems level programming and has a lot of thoughts on the day-to-day.
+
+## Overview
+
+My personal website! 
+
+You may click the link, check it out, and immediately say, 
+"*wow, this is ugly*", and that is because you are right. 
+
+I am definitely no web-developer, but I do enjoy low-level programming and 
+thinking about things, so I decided to make a static-site-generator in Rust 
+for the sake of owning a space on the internet to gab about things I love!
