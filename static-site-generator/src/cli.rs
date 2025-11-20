@@ -30,15 +30,15 @@ enum Commands {
         blog_input: PathBuf,
 
         /// Output blog directory (HTML)
-        #[arg(long, default_value = "/home/diego/dev/diegoarmstrong.com/content/served/blog/")]
+        #[arg(long, default_value = "/home/diego/dev/diegoarmstrong.com/docs/blogs/")]
         blog_output: PathBuf,
 
-        /// Input blog directory (markdown)
+        /// Input main page directory (markdown)
         #[arg(long, default_value = "/home/diego/dev/diegoarmstrong.com/content/markdown/")]
         main_page_input: PathBuf,
 
-        /// Output blog directory (HTML)
-        #[arg(long, default_value = "/home/diego/dev/diegoarmstrong.com/content/served/")]
+        /// Output main page directory (HTML)
+        #[arg(long, default_value = "/home/diego/dev/diegoarmstrong.com/docs/")]
         main_page_output: PathBuf,
 
     },
