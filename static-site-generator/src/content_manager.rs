@@ -18,6 +18,23 @@ impl From<io::Error> for ParserError {
     }
 }
 
+fn html_file_starter() -> String {
+    r#"<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+"#.to_string()
+}
+
+fn html_file_end() -> String {
+    "</body>\n</html>\n".to_string()
+}
+
 /// Create a new file.
 pub fn create_file(path: &Path) -> Result<()> {
 
@@ -35,21 +52,25 @@ pub fn create_file(path: &Path) -> Result<()> {
 /// Renders a new HTML file given markdown input.
 pub fn render_file(md_path: &Path, html_path: &Path) -> Result<()> {
 
-    // Read the contents of the Markdown file.
+    // Read Markdown file
     let markdown_bytes: Vec<u8> = fs::read(md_path)?;
     let markdown_string = String::from_utf8(markdown_bytes)
-    .map_err(|_| ParserError::ReadFailure)?;
+        .map_err(|_| ParserError::ReadFailure)?;
 
-    // Create a new parser with all Markdown Options enabled.
+    // Parse Markdown -> HTML body only
     let parser = Parser::new_ext(&markdown_string, Options::all());
+    let mut html_body = String::new();
+    pulldown_cmark::html::push_html(&mut html_body, parser);
 
-    // Store the HTML output of the parser into a new String.
-    let mut html_output = String::new();
-    pulldown_cmark::html::push_html(&mut html_output, parser);
+    // Compose final HTML
+    let mut final_html = String::new();
+    final_html.push_str(&html_file_starter());
+    final_html.push_str(&html_body);
+    final_html.push_str(&html_file_end());
 
-    // Create a new file with the HTML content.
-    fs::write(html_path, html_output)
-    .map_err(|_| ParserError::WriteFailure)?;
+    // Write final HTML file
+    fs::write(html_path, final_html)
+        .map_err(|_| ParserError::WriteFailure)?;
 
     Ok(())
 }
@@ -73,7 +94,7 @@ pub fn render_content(md_path: &Path, content_path: &Path) -> Result<()> {
             render_file(&path, &new_html_file)?;
 
         } else if path.is_dir() {
-            return Err(ParserError::WriteFailure);
+            // don't do anything
         }
     }
 
