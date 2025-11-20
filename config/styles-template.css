@@ -1,8 +1,8 @@
 /* Generated CSS */
 
 html, body \{
-    margin: 0;
-    padding: 0;
+    margin: 1.5rem;
+    padding: 1.5rem;
     background-color: { base_colours.background_colour };
     color: { base_colours.foreground_colour };
     font-family: { font.font_family };
