@@ -1,6 +1,8 @@
 # Welcome 
 
-![profile-pic](pictures/IMG_3260.JPG) Hola! My name is Diego and welcome to my little spot on the internet.
+<img src="pictures/IMG_3260.JPG" alt="profile-pic" width="180" style="border-radius:12px; margin-right:12px;" />
+
+Hola! My name is Diego and welcome to my little spot on the internet.
 
 This is my personal website where I post about things I'm building, learning, or really anything I am interested in.
 
