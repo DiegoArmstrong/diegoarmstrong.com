@@ -98,7 +98,7 @@ pub fn build_config() -> Result<(), ConfigError> {
     let theme: ThemeConfig = load_theme("/home/diego/dev/diegoarmstrong.com/config/aesthetics.toml")?;
     let css = render_css(&theme)?;
 
-    fs::write("/home/diego/dev/diegoarmstrong.com/docs/", css)
+    fs::write("/home/diego/dev/diegoarmstrong.com/docs/styles.css", css)
     .map_err(|_| ConfigError::BuildError)?;
 
     Ok(())
