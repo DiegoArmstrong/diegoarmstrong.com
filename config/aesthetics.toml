@@ -1,0 +1,31 @@
+[base_colours]
+background_colour = "#282828"
+foreground_colour = "#ebdbb2"
+
+[heading_colours]
+heading1_colour = "#fb4934"
+heading2_colour = "#fabd2f"
+
+[link_colours]
+link_colour = "#458588"
+link_hover_colour = "#83a598"
+
+[code_block_colours]
+code_background_colour = "#3c3836"
+code_text_colour = "#ebdbb2"
+
+[accent_colours]
+accent_colour = "#b8bb26"
+error_colour = "#fb4934"
+warning_colour = "#fe8019"
+
+[font]
+font_family = "Inter, sans-serif"
+
+[font.font_sizes]
+heading1_size = "2.2rem"
+heading2_size = "1.8rem"
+heading3_size = "1.4rem"
+body_size    = "1rem"
+
+

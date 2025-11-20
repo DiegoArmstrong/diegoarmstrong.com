@@ -8,4 +8,6 @@ pulldown-cmark = "0.13.0"
 clap = { version = "4.5.51", features = ["derive"] }
 clap_derive = { version = "4.5.28" }
 slugify = "0.1.0"
-
+serde = { version = "1.0.228", features = ["derive"] }
+tinytemplate = "1.2.1"
+toml = "0.9.8"

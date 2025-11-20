@@ -1,4 +1,5 @@
 use crate::content_manager;
+use crate::config;
 use slugify::slugify;
 use std::path::PathBuf;
 use clap::{Parser, Subcommand};
@@ -84,6 +85,16 @@ fn handle_build(blog_input: PathBuf, blog_output: PathBuf, main_page_input: Path
         }
         Err(e) => {
             eprintln!("Main Page failed to render: {e:?}");
+        }
+    }
+
+    // Render the CSS.
+    match config::build_config() {
+        Ok(()) => {
+            println!("CSS rendered.");
+        }
+        Err(e) => {
+            eprintln!("CSS failed to render: {e:?}");
         }
     }
 }

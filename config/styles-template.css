@@ -1,0 +1,68 @@
+/* Generated CSS */
+
+html, body \{
+    margin: 0;
+    padding: 0;
+    background-color: { base_colours.background_colour };
+    color: { base_colours.foreground_colour };
+    font-family: { font.font_family };
+    font-size: { font.font_sizes.body_size };
+}
+
+/* Headings */
+
+h1 \{
+    color: { heading_colours.heading1_colour };
+    font-size: { font.font_sizes.heading1_size };
+}
+
+h2 \{
+    color: { heading_colours.heading2_colour };
+    font-size: { font.font_sizes.heading2_size };
+}
+
+h3 \{
+    color: { heading_colours.heading2_colour };
+    font-size: { font.font_sizes.heading3_size };
+}
+
+/* Links */
+
+a \{
+    color: { link_colours.link_colour };
+    text-decoration: none;
+}
+
+a:hover \{
+    color: { link_colours.link_hover_colour };
+    text-decoration: underline;
+}
+
+/* Code blocks */
+
+pre, code \{
+    background-color: { code_block_colours.code_background_colour };
+    color: { code_block_colours.code_text_colour };
+    padding: 0.3rem 0.4rem;
+    border-radius: 4px;
+    font-family: "JetBrains Mono", monospace;
+}
+
+/* Accents (errors / warnings / buttons etc.) */
+
+.error \{
+    color: { accent_colours.error_colour };
+}
+
+.warning \{
+    color: { accent_colours.warning_colour };
+}
+
+.button, button \{
+    background-color: { accent_colours.accent_colour };
+    color: { base_colours.background_colour };
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+}
+
