@@ -17,9 +17,7 @@ TOML file, then it is automatically converted into HTML and CSS.
 ## Why a Static Site Generator
 
 I did it this way to prioritize simplicity in website editing, so that I can 
-very quickly create new blog posts and very easily change the aesthetics when I 
-inevitably start using a new colour theme for my text-editor, and decide to make
-my website look like it (currently Gruvbox lol).
+very quickly create new blog posts and very easily change the aesthetics. 
 
 Also I have had an itch to learn Rust for a long time and I figured this would 
 be a fun way to gain some fluency in the language.
@@ -27,10 +25,8 @@ be a fun way to gain some fluency in the language.
 ---
 
 ## Latest Blog Posts
-soon to come...
 
-expect lots of opinions and thoughts about batteries, random thoughts about 
-music, and reflections/updates on projects I am working on :)
+soon to come :)
 
 ---
 
