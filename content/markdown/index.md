@@ -1,3 +1,6 @@
+
+---
+
 # Welcome 
 
 <img src="pictures/IMG_3260.JPG" alt="profile-pic" width="180" style="border-radius:12px; margin-right:12px;" />
@@ -14,7 +17,7 @@ This site is generated using my very own Rust-based static site generator!
 All content is written in markdown, and all the aesthetics are configured in a 
 TOML file, then it is automatically converted into HTML and CSS.
 
-## Why a Static Site Generator
+### Why a Static Site Generator
 
 I did it this way to prioritize simplicity in website editing, so that I can 
 very quickly create new blog posts and very easily change the aesthetics. 
