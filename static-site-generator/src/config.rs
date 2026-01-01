@@ -22,6 +22,7 @@ struct BaseColours {
 struct HeadingColours {
     heading1_colour: String,
     heading2_colour: String,
+    heading3_colour: String,
 }
 
 #[derive(Deserialize, Serialize)]

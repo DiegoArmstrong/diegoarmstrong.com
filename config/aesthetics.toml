@@ -5,6 +5,7 @@ foreground_colour = "#ebdbb2"
 [heading_colours]
 heading1_colour = "#fb4934"
 heading2_colour = "#fabd2f"
+heading3_colour = "#8ec07c"
 
 [link_colours]
 link_colour = "#458588"
