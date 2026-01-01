@@ -1,6 +1,6 @@
 # "White Nights" by Fyodor Dostoevsky 
 
-<img src="pictures/white-nights.webp" alt="white-nights" width="180" style="border-radius:12px; margin-right:12px;" />
+<img src="/pictures/white-nights.webp" alt="white-nights" width="180" style="border-radius:12px; margin-right:12px;" />
 
 ## Context
 
