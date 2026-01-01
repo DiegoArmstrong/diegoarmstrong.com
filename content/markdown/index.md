@@ -29,7 +29,7 @@ be a fun way to gain some fluency in the language.
 
 ## Latest Blog Posts
 
-[White Nights by Fyodor Dostoevsky](/docs/blog/a-review-of-white-nights.html)
+[White Nights by Fyodor Dostoevsky](blogs/a-review-of-white-nights.html)
 
 ---
 
