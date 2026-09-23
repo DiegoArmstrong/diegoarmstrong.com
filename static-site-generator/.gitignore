@@ -11,3 +11,6 @@ target
 
 # rustc will dump stack traces when hitting an internal compiler error to PWD
 rustc-ice-*.txt
+
+# system directory paths on my device for writing blogs etc.
+.env.syspaths
