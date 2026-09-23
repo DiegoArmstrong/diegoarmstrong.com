@@ -1,3 +1,3 @@
-pub mod content_manager;
 pub mod cli;
 pub mod config;
+pub mod content_manager;

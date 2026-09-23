@@ -1,8 +1,8 @@
-use serde::Serialize;
-use tinytemplate::TinyTemplate;
 use serde::Deserialize;
+use serde::Serialize;
 use std::fs;
 use std::io;
+use tinytemplate::TinyTemplate;
 
 #[derive(Debug)]
 pub enum ConfigError {
@@ -69,43 +69,38 @@ struct ThemeConfig {
 }
 
 fn load_theme(path: &str) -> Result<ThemeConfig, ConfigError> {
-    let toml_text = fs::read_to_string(path)
-    .map_err(|_| ConfigError::LoadError)?;
+    let toml_text = fs::read_to_string(path).map_err(|_| ConfigError::LoadError)?;
 
-    let cfg: ThemeConfig = toml::from_str(&toml_text)
-    .map_err(|_| ConfigError::LoadError)?;
+    let cfg: ThemeConfig = toml::from_str(&toml_text).map_err(|_| ConfigError::LoadError)?;
 
     Ok(cfg)
 }
 
 fn render_css(theme: &ThemeConfig) -> Result<String, ConfigError> {
     // Load template from a file
-    let template_src = fs::read_to_string("/home/diego/dev/diegoarmstrong.com/config/styles-template.css")
-    .map_err(|_| ConfigError::TemplateError)?;
+    let template_src =
+        fs::read_to_string("/home/diego/dev/diegoarmstrong.com/config/styles-template.css")
+            .map_err(|_| ConfigError::TemplateError)?;
 
     let mut tt = TinyTemplate::new();
     tt.add_template("css", &template_src)
-    .map_err(|_| ConfigError::TemplateError)?;
+        .map_err(|_| ConfigError::TemplateError)?;
 
     // Render using ThemeConfig as the context
-    let css = tt.render("css", theme)
-    .map_err(|_| ConfigError::TemplateError)?;
+    let css = tt
+        .render("css", theme)
+        .map_err(|_| ConfigError::TemplateError)?;
 
     Ok(css)
 }
 
 pub fn build_config() -> Result<(), ConfigError> {
-
-    let theme: ThemeConfig = load_theme("/home/diego/dev/diegoarmstrong.com/config/aesthetics.toml")?;
+    let theme: ThemeConfig =
+        load_theme("/home/diego/dev/diegoarmstrong.com/config/aesthetics.toml")?;
     let css = render_css(&theme)?;
 
     fs::write("/home/diego/dev/diegoarmstrong.com/docs/styles.css", css)
-    .map_err(|_| ConfigError::BuildError)?;
+        .map_err(|_| ConfigError::BuildError)?;
 
     Ok(())
 }
-
-
-
-
-
