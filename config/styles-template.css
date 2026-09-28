@@ -1,12 +1,20 @@
 /* Generated CSS */
 
 html, body \{
-    margin: 1.5rem;
+    max-width: 700px;
+    margin: 1.5rem auto;
     padding: 1.5rem;
     background-color: { base_colours.background_colour };
     color: { base_colours.foreground_colour };
     font-family: { font.font_family };
     font-size: { font.font_sizes.body_size };
+}
+
+/* Image rules */
+img \{
+    display: block;
+    max-width: 100%;
+    margin: 1.5rem auto;
 }
 
 /* Headings */

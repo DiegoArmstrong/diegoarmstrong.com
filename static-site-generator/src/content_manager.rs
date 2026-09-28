@@ -26,6 +26,7 @@ fn html_file_starter() -> String {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="/favicon.png" /
 </head>
 <body>
 "#
@@ -36,19 +37,9 @@ fn html_file_end() -> String {
     "</body>\n</html>\n".to_string()
 }
 
-/// Create a new file.
-pub fn create_file(path: &Path) -> Result<()> {
-    // Create the new directory.
-    fs::create_dir_all(path.parent().unwrap()).map_err(|_| ParserError::WriteFailure)?;
-
-    // Write a small boiler plate.
-    fs::write(path, "Start writing content!").map_err(|_| ParserError::WriteFailure)?;
-
-    Ok(())
-}
-
 /// Renders a new HTML file given markdown input.
 pub fn render_file(md_path: &Path, html_path: &Path) -> Result<()> {
+
     // Read Markdown file
     let markdown_bytes: Vec<u8> = fs::read(md_path)?;
     let markdown_string =
@@ -93,4 +84,32 @@ pub fn render_content(md_path: &Path, content_path: &Path) -> Result<()> {
     }
 
     Ok(())
+}
+
+/// Copy the photos from obsidian to the deployed site path
+pub fn copy_photos(from: &Path, to: &Path) -> io::Result<()> {
+
+    if !to.exists() {
+        return Err(io::Error::new(
+            io::ErrorKind::NotFound,
+            format!("Destination directory does not exist: {:?}", to),
+        ));
+        
+    }
+
+    for entry in fs::read_dir(from)? {
+        let entry = entry?;
+        let path = entry.path();
+
+        if path.is_file() {
+            if let Some(file_name) = path.file_name() {
+                let to = to.join(file_name);
+                fs::copy(&path, &to)?;
+                println!("Copied: {:?}", file_name);
+            }
+        }
+    }
+
+    Ok(())
+
 }
