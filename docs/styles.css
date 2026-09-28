@@ -1,12 +1,20 @@
 /* Generated CSS */
 
 html, body {
-    margin: 1.5rem;
+    max-width: 700px;
+    margin: 1.5rem auto;
     padding: 1.5rem;
     background-color: #282828;
     color: #ebdbb2;
     font-family: Inter, sans-serif;
     font-size: 1rem;
+}
+
+/* Image rules */
+img {
+    display: block;
+    max-width: 100%;
+    margin: 1.5rem auto;
 }
 
 /* Headings */

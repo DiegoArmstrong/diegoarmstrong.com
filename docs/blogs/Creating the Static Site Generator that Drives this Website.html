@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="/favicon.png" /
+</head>
+<body>
+<h1>Context</h1>
+<p>I have had a long and unfortuantely anti-climactic journey with Rust so far, which I am fully responsible for. Over the last 2 years, I have had about five separate two-week long periods of time where I decided that I was finally going to write the most idiomatic Rust code the world has ever seen, and finally become a <em><strong>true</strong></em> <em><strong>Rustacean</strong></em>. In this time, I have worked with many people who are skeptical of Rust, which I think is very fair given that I have primarily worked in the Embedded Systems industry, where C/C++ has dominated for eons. I have rarely had good means to argue this skepticism with my optimism for the language, since I have never taken the real time to learn it in depth.</p>
+<p>Currently, I understand the fundamentals of the language fairly well, but I have yet to use it for a project where I could imagine that another language would have suffered from memory bugs or optimization issues. Creating this Static Site Generator (SSG) won’t necessarily do that, since it is a small project, but I intend on it enabling me to do so in the near future.</p>
+<p>With this in mind, I want to write down everything I learn about Rust through designing this project as well as simply fighting the compiler about things that are common knowledge to the true Rustacean.</p>
+<p>Also a big shoutout to <a href="https://shanesnover.com">Shane Snover and his blog</a> for reigniting some motivation in me to finish this project and to share blog posts in hopes of helping myself <em><strong>and</strong></em> others!</p>
+<h2>Project Goals</h2>
+<p>The goal of this project is to provide myself with a simple means to write and post to my blog, as well as edit my website’s home page. I already use Obsidian for pretty much all kinds of other writing and I love it, so I wanted to make it easy for me to basically create my website with Obsidian.</p>
+<p>My SSG is essentially just a translater between my Obsidian (Markdown) + .toml file and HTML + CSS.</p>
+<img src="/pictures/SSG-block-diagram.png" alt="ssg-block-diagram" width="480" style="border-radius:12px;" />
+<h1>Rust Learnings</h1>
+<h2>Path vs PathBuf</h2>
+<p>When I first saw these two types flying around in coding examples, I was very confused. In hindsight, it’s super simple.</p>
+<p><em><strong>Path:</strong></em> Borrowed slice, No new allocation, immutable</p>
+<p>Use it when you want to…</p>
+<ul>
+<li>read paths</li>
+</ul>
+<p><em><strong>PathBuf:</strong></em> Owned Struct, Allocates memory on heap, mutable</p>
+<p>Use it when you want to…</p>
+<ul>
+<li>build paths</li>
+<li>modify paths</li>
+<li>return new paths</li>
+</ul>
+<p>One is just a path that you can look at, the other is a path <em><strong>buffer</strong></em> lol.</p>
+<h2>Lifetimes</h2>
+<p>When Rust skeptics say that the language’s syntax is complicated or confusing, this is what they mean. Now I am no compiler engineer or programming language designer (although this is a dream project of mine), but the syntax for lifetimes does not feel intuitive at all. It seems to me that <a href="https://www.reddit.com/r/rust/comments/2k50rj/rust_has_a_problem_lifetimes/">this person</a> agrees.</p>
+<p>Here is my attempt to summarize lifetimes:</p>
+<p><em><strong>Lifetimes are labels that tell the compiler how long a borrow remains valid, so that it never points to data that has been deleted. NO DANGLING POINTERS</strong></em></p>
+<h2>Traits, implementations, from</h2>
+<h2>OnceLock</h2>
+</body>
+</html>
