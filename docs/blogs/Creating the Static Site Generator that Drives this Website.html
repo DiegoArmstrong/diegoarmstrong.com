@@ -19,7 +19,24 @@
 <img src="/pictures/SSG-block-diagram.png" alt="ssg-block-diagram" width="480" style="border-radius:12px;" />
 <h1>Rust Learnings</h1>
 <h2>Path vs PathBuf</h2>
+<p>When I first saw these two types flying around in coding examples, I was very confused. In hindsight, it’s super simple.</p>
+<p><em><strong>Path:</strong></em> Borrowed slice, No new allocation, immutable</p>
+<p>Use it when you want to…</p>
+<ul>
+<li>read paths</li>
+</ul>
+<p><em><strong>PathBuf:</strong></em> Owned Struct, Allocates memory on heap, mutable</p>
+<p>Use it when you want to…</p>
+<ul>
+<li>build paths</li>
+<li>modify paths</li>
+<li>return new paths</li>
+</ul>
+<p>One is just a path that you can look at, the other is a path <em><strong>buffer</strong></em> lol.</p>
 <h2>Lifetimes</h2>
+<p>When Rust skeptics say that the language’s syntax is complicated or confusing, this is what they mean. Now I am no compiler engineer or programming language designer (although this is a dream project of mine), but the syntax for lifetimes does not feel intuitive at all. It seems to me that <a href="https://www.reddit.com/r/rust/comments/2k50rj/rust_has_a_problem_lifetimes/">this person</a> agrees.</p>
+<p>Here is my attempt to summarize lifetimes:</p>
+<p><em><strong>Lifetimes are labels that tell the compiler how long a borrow remains valid, so that it never points to data that has been deleted. NO DANGLING POINTERS</strong></em></p>
 <h2>Traits, implementations, from</h2>
 <h2>OnceLock</h2>
 </body>
